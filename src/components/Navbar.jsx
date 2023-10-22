@@ -9,6 +9,7 @@ import {
   Box,
   Spacer,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -16,7 +17,9 @@ const Navbar = () => {
       <Flex>
         <Box p="4" bg="red.400">
           {/* Brand */}
+          <Link to= {"/"} >
           <h1>Messina's Proyect</h1>
+          </Link>
         </Box>
         <Spacer />
         <Box >
