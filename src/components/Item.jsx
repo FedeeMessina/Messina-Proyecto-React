@@ -9,45 +9,31 @@ import {
   ButtonGroup,
   Button,
   CardFooter,
-  Image
+  Image,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
-const Item = ({
-  id,
-  nombre,
-  descripcion,
-  categoria,
-  precio,
-  cantidad,
-  imagen,
-}) => {
+const Item = ({ id, nombre, imagen }) => {
   return (
-    <div>
-     
-        <Card maxW="sm">
-          <CardBody>
-            <Image src={imagen} alt="" borderRadius="lg" />
-            <Stack mt="6" spacing="3">
-              <Heading size="md">{nombre}</Heading>
-              <Text>{descripcion}</Text>
-              <Text color="blue.600" fontSize="2xl">
-                ${precio}
-              </Text>
-            </Stack>
-          </CardBody>
-          <Divider />
-          <CardFooter>
-            <ButtonGroup spacing="2">
-              <Button variant="solid" colorScheme="blue">
-               Ver Detalle
-              </Button>
-              <Button variant="ghost" colorScheme="blue">
-                Comprar
-              </Button>
-            </ButtonGroup>
-          </CardFooter>
-        </Card>
-
+    <div >
+      <Card maxW="sm">
+        <CardBody>
+          <Image src={imagen} alt="" borderRadius="lg" />
+          <Stack mt="6" spacing="3">
+            <Heading size="md">{nombre}</Heading>
+          </Stack>
+        </CardBody>
+        <Divider />
+        <CardFooter>
+          <ButtonGroup spacing="2">
+            <Button variant="solid" colorScheme="blue">
+              <Link to={`/product/${id}`}
+              >Ver Detalle
+              </Link>
+            </Button>
+          </ButtonGroup>
+        </CardFooter>
+      </Card>
     </div>
   );
 };
