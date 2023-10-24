@@ -10,24 +10,26 @@ const ItemCount = () => {
         <Button
           variant="outline"
           colorScheme="teal"
-        
-
-
-          onClick={()=>{if (count > 0) {
-            setCount(count - 1);
-          }}}
+          onClick={() => {
+            if (count > 0) {
+              setCount(count - 1);
+            }
+          }}
           m={1}
         >
-        -
+          -
         </Button>
         <Button m={1}>{count}</Button>
-        <Button   variant="outline"
+        <Button
+          variant="outline"
           colorScheme="teal"
           onClick={() => setCount(count + 1)}
           m={1}
-        >+</Button>
+        >
+          +
+        </Button>
       </Box>
-      <Spacer/>
+      <Spacer />
       <Box m={1}>
         <Button>Agregar Al Carrito</Button>
       </Box>

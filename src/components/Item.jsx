@@ -4,7 +4,7 @@ import {
   CardBody,
   Stack,
   Heading,
-  Text,
+  Center,
   Divider,
   ButtonGroup,
   Button,
@@ -12,13 +12,14 @@ import {
   Image,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import "../App.css";
 
 const Item = ({ id, nombre, imagen }) => {
   return (
     <div >
-      <Card maxW="sm">
-        <CardBody>
-          <Image src={imagen} alt="" borderRadius="lg" />
+      <Card  className= "cardContainer" maxW="sm">
+        <CardBody className= "cardProduct">
+          <Image className= "cardImage"src={imagen} alt="" borderRadius="lg" />
           <Stack mt="6" spacing="3">
             <Heading size="md">{nombre}</Heading>
           </Stack>
@@ -27,9 +28,11 @@ const Item = ({ id, nombre, imagen }) => {
         <CardFooter>
           <ButtonGroup spacing="2">
             <Button variant="solid" colorScheme="blue">
+              <Center>
               <Link to={`/product/${id}`}
               >Ver Detalle
               </Link>
+              </Center>
             </Button>
           </ButtonGroup>
         </CardFooter>

@@ -18,7 +18,7 @@ const ItemDetail = ({ productos }) => {
 
   const filteredProduct = productos.filter((producto) => producto.id == id);
   return (
-    <div>
+    <div key={id}>
       {
         filteredProduct.map((productos) => {
         return (

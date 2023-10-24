@@ -9,6 +9,7 @@ import {
   Box,
   Spacer,
 } from "@chakra-ui/react";
+import "../App.css";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -24,15 +25,15 @@ const Navbar = () => {
         <Spacer />
         <Box>
           <Menu>
-            <MenuButton>Categorias</MenuButton>
-            <MenuList>
-              <Link to={"/categoria/hombres"}>
+            <MenuButton className="btnCategorias">Categorias</MenuButton>
+            <MenuList className="dropdownCategorias">
+              <Link to={`/categoria/${"hombres"}`}>
                 <MenuItem>Hombres</MenuItem>
               </Link>
-              <Link to={"/categoria/mujeres"}>
+              <Link to={`/categoria/${"mujeres"}`}>
                 <MenuItem>Mujeres</MenuItem>
               </Link>
-              <Link to={"categoria/niños"}>
+              <Link to={`categoria/${"niños"}`}>
                 <MenuItem>Niños</MenuItem>
               </Link>
             </MenuList>

@@ -2,9 +2,14 @@ import React from "react";
 import ItemList from "./ItemList";
 import { Center } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
+import { useState } from "react"; 
 
 const ItemListContainer = () => {
   const {categoria} = useParams()
+console.log(categoria)
+const {filterProduct, setFilterProduct} = useState([]);
+
+
 
   const productos = [
     {
@@ -80,7 +85,7 @@ const ItemListContainer = () => {
       cantidad: 8,
     },
   ];
-
+  
   const obtenerProductos = new Promise((resolve, reject) => {
     if (productos.length > 0) {
       setTimeout(() => {
@@ -97,14 +102,15 @@ const ItemListContainer = () => {
     .catch((error) => {
       console.log(error);
     });
-
-    const filteredProduct = productos.filter((producto) => producto.categoria == categoria);
-
-
+    
+   
+  const filteredProduct = productos.filter((producto) => producto.categoria == categoria);
+    
+    
   return (
     <>
-      <Center p = "1rem">
-        <ItemList productos={productos} />
+      <Center className= "itemListContainer" p = "1rem">
+      {categoria ? <ItemList productos={filteredProduct} /> : <ItemList productos={productos} />}
       </Center>
     </>
   );

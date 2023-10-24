@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+
+}
+
+.btnCategorias {
+  padding: 2px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.cardContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 10px;
+  
+}
+
+.cardProduct {
+  border-radius: 10px;
+  overflow: hidden;
+  
+}
+
+.cardContainer:hover{
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cardImage{
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    transition: all 0.5s;
+}
+
+.cardImage:hover{
+transform: scale(1.1);
+}
