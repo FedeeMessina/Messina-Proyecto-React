@@ -22,9 +22,9 @@ const ItemDetail = ({ productos }) => {
       {
         filteredProduct.map((productos) => {
         return (
-          <Card maxW="sm">
-            <CardBody>
-              <Image src={productos.imagen} alt="" borderRadius="lg" />
+          <Card className= "cardContainer" maxW="sm">
+            <CardBody className= "cardProduct">
+              <Image className= "cardImage" src={productos.imagen} alt="" borderRadius="lg" />
               <Stack mt="6" spacing="3">
                 <Heading size="md">{productos.nombre}</Heading>
                 <Text>{productos.descripcion}</Text>
