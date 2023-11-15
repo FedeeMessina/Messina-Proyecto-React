@@ -23,6 +23,8 @@ const ItemListContainer = () => {
   const filteredProduct = productos.filter(
     (producto) => producto.categoria == categoria
   ); 
+
+
   return (
       <>
           <Center className="itemListContainer" p="1rem">

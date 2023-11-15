@@ -8,28 +8,28 @@ import { doc, getDoc, getFirestore } from 'firebase/firestore'
 const ItemDetailContainer = () => {
     
     const {id} = useParams()
-    const [productos, setProducto] = useState()
+    const [producto, setProducto] = useState()
 
   useEffect(() => {
       const db = getFirestore();
       const oneItem = doc(db, "productos", `${id}`);
 
-      getDoc(oneItem).then((snapshot) => {
+
+
+       getDoc(oneItem).then((snapshot) => {
         if (snapshot.exists()){
-          const docs = snapshot.data()
-          setProducto(snapshot.docs.map((doc) =>({id: doc.id, ...doc.data()})));
-        }
-      });
+          setProducto({ id: snapshot.id, ...snapshot.data()});    }
+      }); 
     }, []);
     
-    console.log(id)
+
 
  
 
   return (
     <>
       <Center p="1rem">
-        <ItemDetail productos={productos} />
+        <ItemDetail producto={producto} />
       </Center>
     </>
   );
