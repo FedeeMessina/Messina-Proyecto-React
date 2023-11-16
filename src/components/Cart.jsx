@@ -1,5 +1,5 @@
 import React from "react";
-import {useState, useContext} from "react"
+import { useState, useContext } from "react";
 import { CartContext } from "../context/ShoppingCartContex";
 import {
   TableContainer,
@@ -16,52 +16,64 @@ import {
 } from "@chakra-ui/react";
 
 const Cart = () => {
+  const {
+    carrito,
+    setCarrito,
+    cantidadProductosCarrito,
+    agregarProducto,
+    borrarProducto,
+    vaciarCarrito,
+  } = useContext(CartContext);
+
+  const [loader, setLoader] = useState(true)
 
 
+  console.log(carrito)
+  return cantidadProductosCarrito() !== 0
 
-
-
-
-  return (
-    <TableContainer>
-      <Table size="sm">
-        <Thead>
-          <Tr>
-            <Th></Th>
-            <Th>Cantidad</Th>
-            <Th>Nombre</Th>
-            <Th>Precio</Th>
-            <Th></Th>
-          </Tr>
-        </Thead>
-        <Tbody>
-          <Tr>
-            <Td></Td>
-            <Td>producto.cantidad</Td>
-            <Td>producto.nombre</Td>
-            <Td>producto.precio</Td>
-            <Td>
-              <Button onClick={borrarProducto} colorScheme='red'>X</Button>
-                          </Td>
-          </Tr>
-        </Tbody>
-        <Tfoot>
-          <Tr>
-            <Center h="100px">Total</Center>
-          </Tr>
-        </Tfoot>
-          <Box>
-
-          </Box>
-        <Box>
-        <Center >
-          <Button onClick={vaciarCarrito} colorScheme="red">Vaciar carrito</Button>
-        </Center>
-        </Box>
-
-      </Table>
-    </TableContainer>
-  );
+  
+    ? carrito.map((producto) => {
+        <TableContainer>
+          <Table size="sm">
+            <Thead>
+              <Tr>
+                <Th></Th>
+                <Th>Cantidad</Th>
+                <Th>Nombre</Th>
+                <Th>Precio</Th>
+                <Th></Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              <Tr>
+                <Td></Td>
+                <Td>producto.cantidad</Td>
+                <Td>producto.nombre</Td>
+                <Td>producto.precio</Td>
+                <Td>
+                  <Button onClick={borrarProducto} colorScheme="red">
+                    X
+                  </Button>
+                </Td>
+              </Tr>
+            </Tbody>
+            <Tfoot>
+              <Tr>
+                <Center h="100px">Total</Center>
+              </Tr>
+            </Tfoot>
+            <Box></Box>
+            <Box>
+              <Center>
+                <Button onClick={vaciarCarrito} colorScheme="red">
+                  Vaciar carrito
+                </Button>
+              </Center>
+            </Box>
+          </Table>
+        </TableContainer>;
+      })
+    : alert("El carrito esta vacio");
 };
 
 export default Cart;

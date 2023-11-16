@@ -9,13 +9,14 @@ export const ShoppingCartProvider = ({
     const [badge, setBadge] = useState(0)
     
     const agregarProducto = (producto, count) =>{
-        alert(`vas a agregar ${count} productos a tu carrito`)
-
+        alert(`vas a agregar ${count} unidades de ${producto.nombre} a tu carrito`)
+        
         const productoExistente = carrito.find((p)=>p.id ===producto.id );
         if (productoExistente > 0 ){
             const actualizarCarrito = [...carrito]
             actualizarCarrito(productoExistente).count += count
             setCarrito(actualizarCarrito)
+            console.log(producto)
         }
     }
 
@@ -30,7 +31,8 @@ export const ShoppingCartProvider = ({
 
     const cantidadProductosCarrito = () => {
         if(carrito.length > 0){
-            setBadge()
+            const itemsCarrito = carrito.length
+            setBadge(itemsCarrito)
         }
 
     }

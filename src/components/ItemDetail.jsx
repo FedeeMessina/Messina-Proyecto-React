@@ -43,7 +43,7 @@ const ItemDetail = ({ producto }) => {
         <Divider />
         <CardFooter>
           <ButtonGroup spacing="2">
-            <ItemCount />
+            <ItemCount producto={producto} />
           </ButtonGroup>
         </CardFooter>
       </Card>
