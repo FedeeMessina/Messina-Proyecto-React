@@ -10,12 +10,12 @@ export const ShoppingCartProvider = ({ children }) => {
     alert(`vas a agregar ${count} unidades de ${producto.nombre} a tu carrito`);
     
     const {id, nombre,precio } = producto;
-    const productoExistente = carrito.find((p) => p.id === producto.id);
-    
+    const productoExistente = carrito.find((p) => p.id === id);
+
     if (productoExistente) {
-            const actualizarCarrito = [...carrito]
-            actualizarCarrito(productoExistente).count += count
-            setCarrito(actualizarCarrito)
+            const agregarProducto = [...carrito]
+            agregarProducto(productoExistente).count += count
+            setCarrito(agregarProducto)
             
         } 
         else{
