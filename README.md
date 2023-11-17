@@ -4,6 +4,7 @@ Proyecto de E-commerce creado en el marco del curso de React de CoderHouse
 
 Se usan hasta el momento librerias como :
 - Chakra
+- Toastify para los alerts
 
 Dejo mi red social de trabajo aqui para que puedas saber mas de mí:
 
@@ -11,6 +12,7 @@ Dejo mi red social de trabajo aqui para que puedas saber mas de mí:
 
 
 Gif Descriptivo de la navegacion en la pagina:
+(TODAVIA LE FALTA MUCHISIMO CSS PERO LA FUNCIONALIDAD ESTÁ)
   
 ![EntregaFinalGif1](https://github.com/FedeeMessina/Messina-React-PreEntrega2/assets/88862149/eed36682-89f6-45d8-be39-0bbaceb94181)
 
