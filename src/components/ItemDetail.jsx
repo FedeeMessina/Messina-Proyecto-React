@@ -11,16 +11,9 @@ import {
   Image,
 } from "@chakra-ui/react";
 import ItemCount from "./ItemCount";
-import {useContext} from "react"
-import { CartContext } from "../context/ShoppingCartContex";
 
 
 const ItemDetail = ({ producto }) => {
-
-
-    
- 
-  
 
   return (
     <div >

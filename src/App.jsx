@@ -6,7 +6,7 @@ import Cart from "./components/Cart";
 import "./App.css";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import ShoppingCartProvider from "./context/ShoppingCartContex";
-
+import Form from "./components/Form";
 const App = () => {
   return (
     <BrowserRouter>
@@ -14,6 +14,7 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route exact path="/" element={<ItemListContainer />} />
+          <Route exact path="/form" element={<Form />} />
           <Route exact path="/cart" element={<Cart />} />
           <Route exact path="/product/:id" element={<ItemDetailContainer />} />
           <Route

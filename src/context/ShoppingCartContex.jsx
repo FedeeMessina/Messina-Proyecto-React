@@ -7,42 +7,52 @@ export const ShoppingCartProvider = ({ children }) => {
   const [badge, setBadge] = useState(0);
 
   const agregarProducto = (producto, count) => {
-    alert(`vas a agregar ${count} unidades de ${producto.nombre} a tu carrito`);
-    
-    const {id, nombre,precio } = producto;
+    alert(`Vas a agregar ${count} unidades de ${producto.nombre} a tu carrito`);
+    const { id, nombre, precio } = producto;
     const productoExistente = carrito.find((p) => p.id === id);
 
     if (productoExistente) {
-            const agregarProducto = [...carrito]
-            agregarProducto(productoExistente).count += count
-            setCarrito(agregarProducto)
-            
-        } 
-        else{
-            const nuevoProducto = {id, nombre, precio, count}
-            const carritoNuevo = [...carrito, nuevoProducto]
-            setCarrito(carritoNuevo)
-            
-        }
+      productoExistente.count += count;
+      setCarrito((carritoPrevio) =>
+        carritoPrevio.map((p) => (p.id === id ? productoExistente : p))
+      );
+    } else {
+      const nuevoProducto = { ...producto, count };
+      setCarrito((carritoPrevio) => [...carritoPrevio, nuevoProducto]);
+
+      // Incrementar el contador solo cuando se agrega un producto nuevo
+      setBadge((prevBadge) => prevBadge + 1);
+    }
   };
 
-  const borrarProducto = (idProducto) => {
-    const nuevoCarrito = carrito.filter(
-      (producto) => producto.id !== idProducto
-    );
-    setCarrito(nuevoCarrito);
+  const borrarProducto = (id) => {
+    const productoAEliminar = carrito.find((p) => p.id === id);
+
+    if (productoAEliminar) {
+      const nuevoCarrito = carrito.filter((p) => p.id !== id);
+      setCarrito(nuevoCarrito);
+
+      // Decrementar el contador solo cuando se elimina un producto existente
+      setBadge((prevBadge) => Math.max(0, prevBadge - 1));
+    }
   };
 
   const vaciarCarrito = () => {
     setCarrito([]);
+    setBadge(0); // Resetear el contador cuando se vacía el carrito
   };
 
   const cantidadProductosCarrito = () => {
-    if (carrito.length > 0) {
-      const itemsCarrito = carrito.length;
-      setBadge(itemsCarrito);
-    }
+    const itemsCarrito = carrito.length;
+    setBadge(itemsCarrito);
   };
+
+  const totalAPagar = ()=>{
+    const total = carrito.reduce((acc, producto) => {
+      return acc + producto.precio * producto.count;
+    }, 0);
+    return total;
+  }
 
   return (
     <CartContext.Provider
@@ -55,11 +65,13 @@ export const ShoppingCartProvider = ({ children }) => {
         borrarProducto,
         cantidadProductosCarrito,
         vaciarCarrito,
+        totalAPagar
       }}
     >
       {children}
     </CartContext.Provider>
   );
 };
+
 
 export default ShoppingCartProvider;
