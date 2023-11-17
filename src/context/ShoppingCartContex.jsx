@@ -7,6 +7,10 @@ export const ShoppingCartProvider = ({ children }) => {
   const [badge, setBadge] = useState(0);
 
   const agregarProducto = (producto, count) => {
+    if (count <= 0) {
+      return;
+    }
+
     alert(`Vas a agregar ${count} unidades de ${producto.nombre} a tu carrito`);
     const { id, nombre, precio } = producto;
     const productoExistente = carrito.find((p) => p.id === id);
@@ -47,12 +51,12 @@ export const ShoppingCartProvider = ({ children }) => {
     setBadge(itemsCarrito);
   };
 
-  const totalAPagar = ()=>{
+  const totalAPagar = () => {
     const total = carrito.reduce((acc, producto) => {
       return acc + producto.precio * producto.count;
     }, 0);
     return total;
-  }
+  };
 
   return (
     <CartContext.Provider
@@ -65,13 +69,12 @@ export const ShoppingCartProvider = ({ children }) => {
         borrarProducto,
         cantidadProductosCarrito,
         vaciarCarrito,
-        totalAPagar
+        totalAPagar,
       }}
     >
       {children}
     </CartContext.Provider>
   );
 };
-
 
 export default ShoppingCartProvider;

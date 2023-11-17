@@ -39,3 +39,61 @@
 .cardImage:hover{
 transform: scale(1.1);
 }
+
+/* ESTILOS PARA EL CARRITO */
+
+.tablaCarrito {
+  border-radius: 10px; /* Agrega bordes redondeados */
+  overflow: hidden;
+  margin-top: 60px; /* Evita que el borde redondeado afecte a los elementos hijos */
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  background-color: #fff; /* Cambia el color de fondo a blanco o el color deseado */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Agrega una sombra para efecto difuminado */
+}
+
+/* Ajusta el estilo de las celdas de la tabla */
+.table {
+  width: 100%;
+}
+
+/* Ajusta el estilo de los títulos de la tabla */
+.th {
+  font-size: 30px !important; /* Ajusta el tamaño de fuente de los títulos */
+
+}
+
+/* Ajusta el estilo de las celdas de la tabla */
+.td {
+  font-size: 16px !important; /* Ajusta el tamaño de fuente de las celdas */
+}
+
+/* Ajusta el estilo del total */
+.total {
+  font-size: 30px !important; /* Ajusta el tamaño de fuente del total */
+  font-weight: bold; /* Hace que el total sea más destacado */
+  color:black; /* Cambia el color del total a rojo o el color deseado */
+  text-align: center;
+  margin-top: 20px !important; /* Ajusta el margen superior para más separación */
+  margin-bottom: 20px !important;
+  padding-top: 10px; /* Añade espacio arriba del total */
+  border-top: 1px solid #ddd; /* Agrega una línea superior */
+  box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.5); /* Sombrea la línea superior */
+}
+
+/* Ajusta el estilo del botón */
+.button {
+  margin-top: 10px; /* Agrega espacio arriba del botón */
+  font-size: 16px; /* Ajusta el tamaño de fuente del botón */
+  font-weight: bold; /* Hace que el botón sea más destacado */
+  background-color: #ff0000; /* Cambia el color del botón a rojo o el color deseado */
+  color: #fff; /* Cambia el color del texto del botón a blanco o el color deseado */
+  border: none; /* Elimina el borde del botón */
+  padding: 10px 20px; /* Ajusta el relleno del botón */
+  border-radius: 5px; /* Agrega bordes redondeados al botón */
+}
+
+.vaciarCarritoContainer {
+  margin-bottom: 20px; /* O el valor que desees para separar el botón de la parte inferior */
+}
