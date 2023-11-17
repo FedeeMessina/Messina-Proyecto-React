@@ -7,8 +7,9 @@ import { CartContext } from "../context/ShoppingCartContex";
 const CartWidget = () => {
 
   const {badge} = useContext(CartContext);
+  //ME TRAIGO EL BADGE DEL USE CONTEXT ACA
 
-
+  //EN EL RETURN HAY UN SVG CON EL ICONO DE CARRITO Y EL BADGE Q SE VA A IR CAMBIANDO CON EL COUNT
   return (
     <Flex>
       <Box>

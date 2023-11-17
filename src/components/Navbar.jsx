@@ -19,7 +19,7 @@ const Navbar = () => {
     <div>
       <Flex align="center" justify="center" maxW="100%" bg="black">
         <Box  maxW="15%" p="4">
-          {/* Brand */}
+          {/* ACA PONGO EL LOGO DE LA PAGINA */}
           <Link to={"/"}>
             <Image className="Logo" src={logo} alt="Messina's Project" />
           </Link>
@@ -34,6 +34,7 @@ const Navbar = () => {
               Categorias
             </MenuButton>
             <MenuList className="dropdownCategorias">
+              {/* ACA LE PASO LOS LINKS CON LOS BACKSTICK PARA QUE SE ACOMODEN A LA CATEGORIA Q VA TRAYENDO */}
               <Link to={`/categoria/${"hombres"}`}>
                 <MenuItem>Hombres</MenuItem>
               </Link>
@@ -48,7 +49,7 @@ const Navbar = () => {
         </Box>
         <Spacer />
         <Box p="4" bg="black">
-          {/*Carrito */}
+          {/*ACA PASO EL COMPONENTE CARTWIDGET QUE ES EL Q TIENE EL BADGE CON EL CONTADOR DE CADA PRODUCTO DISTINTO */}
           <CartWidget />
         </Box>
       </Flex>

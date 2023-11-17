@@ -29,9 +29,12 @@ import {
 import { getFirestore, addDoc, collection } from "firebase/firestore";
 
 const Cart = () => {
+
+  //ACA USO USE CONTEXT PARA QUE ME "TRAIGA"  EL CARRITO CON EL CONTENIDO Y LAS FUNCIONES PARA TRABAJAR DENTRO DEL MISMO
   const { carrito, borrarProducto, totalAPagar, vaciarCarrito } =
     useContext(CartContext);
 
+  //ESTAS CONST SON PARA CUANDO "SIGO LA COMPRA" EN EL MODAL QUE SALE ME VAYA AGARRANDO LOS CAMPOS Y ME LOS ALMACENE
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
   const [email, setEmail] = useState("");
@@ -39,6 +42,7 @@ const Cart = () => {
   const [orderId, setOrderId] = useState(null);
   const [showOrderInfo, setShowOrderInfo] = useState(false);
 
+  //EMPIEZO A LLAMAR A LA BASE DE DATOS
   const db = getFirestore();
 
   useEffect(() => {
@@ -47,9 +51,11 @@ const Cart = () => {
     }
   }, [orderId]);
 
+
+//HANDLE SUBMIT ES UNA FUNCION ASINCRONA Q TIENE EL PREVENT DEFAULT PARA Q NO SE DISPARE
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+//LUEGO ARMO UN OBJETO ORDER EL CUAL VA A IR ALMACENANDO DATOS
     const order = {
       nombre,
       apellido,
@@ -58,6 +64,7 @@ const Cart = () => {
     };
 
     try {
+      //ACA AGREGO EL ORDER A LA BASE DE DATOS A LA COLECCION "MI ORDEN"
       const docRef = await addDoc(collection(db, "MiOrden"), order);
       setOrderId(docRef.id);
     } catch (error) {
@@ -67,12 +74,15 @@ const Cart = () => {
 
   return (
     <div className="tablaCarrito">
+
+      {/* ACA SI EL CARRITO ESTA VACIO NO APARECE LA TABLA Y APARECE EL MENSAJE CARRITO VACIO QUE LO HAGO CON UN IF TERNARIO */}
       {carrito.length === 0 ? (
         <Center>
           <p>Tu carrito de compras está vacío</p>
         </Center>
       ) : (
         <>
+        {/* ACA APARECE LA TABLA LA CUAL SE VA A IR LLENANDO CON LOS DATOS QUE LE PASO POR USE CONTEXT */}
           <TableContainer>
             <Table size="md" className="table">
               <Thead>
@@ -89,6 +99,7 @@ const Cart = () => {
                 </Tr>
               </Thead>
               <Tbody>
+                {/* ACA MAS ESPECIFICAMENTE HACE UN MAPEO POR LOS PRODUCTOS Y LOS VA "PINTANDO EN LA TABLA" */}
                 {carrito.map((producto) => (
                   <Tr key={producto.id}>
                     <Td fontSize={18}></Td>
@@ -96,6 +107,7 @@ const Cart = () => {
                     <Td fontSize={18}>{producto.nombre}</Td>
                     <Td fontSize={18}>${producto.precio}</Td>
                     <Td fontSize={18}>
+                      {/* BOTON QUE ME BORRA EL PRODUCTO POR EL ID CORRESPONDIENTE ES DECIR BORRA TODO EL ARTICULO SELECCIONADO*/}
                       <Button
                         onClick={() => borrarProducto(producto.id)}
                         colorScheme="red"
@@ -109,6 +121,7 @@ const Cart = () => {
               <Tfoot>
                 <Tr>
                   <Td colSpan="5" textAlign="center" className="total">
+                    {/* ACA CON USE CONTEXT TRAIGO LA FUNCION TOTAL A PAGAR QUE ME TRAE EL RESULTADO DE LA COMPRA TOTAL */}
                     <h2>Total = ${totalAPagar()}</h2>
                   </Td>
                 </Tr>
@@ -118,6 +131,7 @@ const Cart = () => {
           <Box className="vaciarCarritoContainer">
             <Center className="buttonGroup">
               <ButtonGroup gap="2">
+                {/* BUTTOON PARA VACIAR CARRITO,ESTE LO VACIA COMPLETO */}
                 <Button
                   onClick={vaciarCarrito}
                   colorScheme="red"
@@ -126,6 +140,7 @@ const Cart = () => {
                   <Spacer />
                   Vaciar carrito
                 </Button>
+                {/* BOTON QUE ME "DEJA" SEGUIR LA COMPRA Y ABRE EL MODAL CON EL FORMULARIO DE ENVIO */}
                 <Button
                   onClick={() => setShowOrderInfo(true)}
                   colorScheme="blue"
@@ -136,6 +151,7 @@ const Cart = () => {
               </ButtonGroup>
             </Center>
           </Box>
+          {/* MODAL QUE SE ABRE Y TIENE UN FORM QUE ENVIA LA DATA A LA BASE DE DATOS CON LOS E.TARGET.VALUE */}
           <Modal
             isOpen={showOrderInfo}
             onClose={() => setShowOrderInfo(false)}
@@ -143,7 +159,7 @@ const Cart = () => {
           >
             <ModalOverlay />
             <ModalContent>
-              <ModalHeader>¡Compra completada!</ModalHeader>
+              <ModalHeader>¡Formulario de Envio!</ModalHeader>
               <ModalCloseButton />
               <ModalBody>
                 <form onSubmit={handleSubmit}>
@@ -185,6 +201,7 @@ const Cart = () => {
                     Finalizar Compra
                   </Button>
                 </form>
+                {/* ACA RETORNA UN <P> CON EL NUMERO DE ORDERID QUE ME TRAIGO DE LA BASE DE DATOS */}
                 <p>Número de orden: {orderId} </p>
               </ModalBody>
               <ModalFooter>

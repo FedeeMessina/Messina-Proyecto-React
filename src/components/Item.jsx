@@ -14,6 +14,8 @@ import {
 import { Link } from "react-router-dom";
 import "../App.css";
 
+//ACA ME TRAIGO LOS CAMPOS QUE VIENEN DEL ITEM LIST PARA IR MOSTRANDO Y ARMANDO LA CARD
+
 const Item = ({ id, nombre, imagen }) => {
   return (
     <div className="itemContainer">
