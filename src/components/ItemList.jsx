@@ -13,7 +13,7 @@ const ItemList = ({ productos }) => {
             descripcion={p.descripcion}
             categoria={p.categoria}
             precio={p.precio}
-            cantidad={p.cantidad}
+            stock={p.stock}
             imagen={p.imagen}
           />
         );

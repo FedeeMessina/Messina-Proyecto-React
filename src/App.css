@@ -5,12 +5,18 @@
   font-family: "Quicksand", sans-serif;
 
 }
-
+.logo{
+  max-width: 30px;
+  max-height: 30px;
+}
 .btnCategorias {
-  padding: 2px;
+  align-items: center;
+  margin-left: 0px;
   font-size: 25px;
   font-weight: bold;
-}
+  }
+
+
 
 .cardContainer {
     display: grid;
@@ -19,15 +25,24 @@
   
 }
 
-.cardProduct {
-  border-radius: 10px;
-  overflow: hidden;
+.itemContainer {
+  width: 30%; /* Ajusta el ancho del contenedor según tus necesidades */
+  margin: 10px; /* Ajusta el margen según tus necesidades */
+  display: inline-block;
+  text-align: center;
   
 }
 
-.cardContainer:hover{
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+.cardContainer {
+  text-align: center; /* Alinea las tarjetas en el centro del contenedor */
+  border-radius: 10px !important;
+  overflow: hidden;
 }
+.cardContainer:hover{
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8) !important;
+}
+
+
 
 .cardImage{
     width: 100%;
@@ -58,16 +73,7 @@ transform: scale(1.1);
   width: 100%;
 }
 
-/* Ajusta el estilo de los títulos de la tabla */
-.th {
-  font-size: 30px !important; /* Ajusta el tamaño de fuente de los títulos */
 
-}
-
-/* Ajusta el estilo de las celdas de la tabla */
-.td {
-  font-size: 16px !important; /* Ajusta el tamaño de fuente de las celdas */
-}
 
 /* Ajusta el estilo del total */
 .total {
@@ -96,4 +102,8 @@ transform: scale(1.1);
 
 .vaciarCarritoContainer {
   margin-bottom: 20px; /* O el valor que desees para separar el botón de la parte inferior */
+}
+
+.alertToast{
+  color: white;
 }

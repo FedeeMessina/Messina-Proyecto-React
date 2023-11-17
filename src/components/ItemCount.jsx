@@ -1,13 +1,24 @@
 import { useState, useContext } from "react";
 import { Button, Box, Spacer, Flex } from "@chakra-ui/react";
 import { CartContext } from "../context/ShoppingCartContex";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const ItemCount = ({producto}) => {
-  
+const ItemCount = ({ producto }) => {
   const [count, setCount] = useState(0);
-  const {agregarProducto} = useContext(CartContext)
+  const { agregarProducto } = useContext(CartContext);
+  const notify = () =>
+    toast(`Agregaste ${count} unidades de ${producto.nombre} a tu carrito`, {
+      autoClose: 2000,
+      closeOnClick: true,
+      theme: "success",
+      style: {
+        background: "linear-gradient(to right, #00b09b, #96c93d)",
+      },
+    });
 
-   return (
+
+  return (
     <Flex>
       <Box>
         <Button
@@ -34,7 +45,15 @@ const ItemCount = ({producto}) => {
       </Box>
       <Spacer />
       <Box m={1}>
-        <Button onClick={ () => agregarProducto(producto, count)}>Agregar Al Carrito</Button>
+        <Button
+          onClick={() => {
+            agregarProducto(producto, count);
+            notify();
+          }}
+        >
+          Agregar Al Carrito
+        </Button>
+        <ToastContainer />
       </Box>
     </Flex>
   );

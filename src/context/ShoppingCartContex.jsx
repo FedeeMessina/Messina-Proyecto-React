@@ -10,8 +10,7 @@ export const ShoppingCartProvider = ({ children }) => {
     if (count <= 0) {
       return;
     }
-
-    alert(`Vas a agregar ${count} unidades de ${producto.nombre} a tu carrito`);
+   
     const { id, nombre, precio } = producto;
     const productoExistente = carrito.find((p) => p.id === id);
 

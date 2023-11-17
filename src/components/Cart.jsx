@@ -74,24 +74,28 @@ const Cart = () => {
       ) : (
         <>
           <TableContainer>
-            <Table size="sm" className="table">
+            <Table size="md" className="table">
               <Thead>
                 <Tr>
                   <Th></Th>
-                  <Th className="th">CANTIDAD</Th>
-                  <Th className="th">NOMBRE</Th>
-                  <Th className="th">PRECIO</Th>
+                  <Th fontSize={30} className="th">
+                    CANTIDAD
+                  </Th>
+                  <Th fontSize={30} className="th">
+                    NOMBRE
+                  </Th>
+                  <Th fontSize={30}>PRECIO</Th>
                   <Th></Th>
                 </Tr>
               </Thead>
               <Tbody>
                 {carrito.map((producto) => (
                   <Tr key={producto.id}>
-                    <Td className="td"></Td>
-                    <Td className="td">{producto.count}</Td>
-                    <Td className="td">{producto.nombre}</Td>
-                    <Td className="td">${producto.precio}</Td>
-                    <Td className="td">
+                    <Td fontSize={18}></Td>
+                    <Td fontSize={18}>{producto.count}</Td>
+                    <Td fontSize={18}>{producto.nombre}</Td>
+                    <Td fontSize={18}>${producto.precio}</Td>
+                    <Td fontSize={18}>
                       <Button
                         onClick={() => borrarProducto(producto.id)}
                         colorScheme="red"

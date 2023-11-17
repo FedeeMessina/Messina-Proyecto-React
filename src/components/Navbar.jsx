@@ -8,24 +8,31 @@ import {
   Flex,
   Box,
   Spacer,
+  Image
 } from "@chakra-ui/react";
 import "../App.css";
 import { Link } from "react-router-dom";
+import logo from "../../public/images/logo.jpg"
 
 const Navbar = () => {
   return (
     <div>
-      <Flex>
-        <Box p="4" bg="red.400">
+      <Flex align="center" justify="center" maxW="100%" bg="black">
+        <Box  maxW="15%" p="4">
           {/* Brand */}
           <Link to={"/"}>
-            <h1>Messina's Proyect</h1>
+            <Image className="Logo" src={logo} alt="Messina's Project" />
           </Link>
         </Box>
         <Spacer />
         <Box>
           <Menu>
-            <MenuButton className="btnCategorias">Categorias</MenuButton>
+            <MenuButton
+              color="white"
+              className="btnCategorias"
+            >
+              Categorias
+            </MenuButton>
             <MenuList className="dropdownCategorias">
               <Link to={`/categoria/${"hombres"}`}>
                 <MenuItem>Hombres</MenuItem>
@@ -40,7 +47,7 @@ const Navbar = () => {
           </Menu>
         </Box>
         <Spacer />
-        <Box p="4" bg="green.400">
+        <Box p="4" bg="black">
           {/*Carrito */}
           <CartWidget />
         </Box>

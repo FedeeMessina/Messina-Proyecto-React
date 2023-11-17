@@ -12,12 +12,10 @@ import {
 } from "@chakra-ui/react";
 import ItemCount from "./ItemCount";
 
-
 const ItemDetail = ({ producto }) => {
-
   return (
-    <div >
-      <Card className="cardContainer" maxW="sm">
+    <div>
+      <Card  className="cardContainer" maxW="sm">
         <CardBody className="cardProduct">
           <Image
             className="cardImage"
@@ -35,9 +33,7 @@ const ItemDetail = ({ producto }) => {
         </CardBody>
         <Divider />
         <CardFooter>
-          <ButtonGroup spacing="2">
-            <ItemCount producto={producto} />
-          </ButtonGroup>
+          <ItemCount producto={producto} />
         </CardFooter>
       </Card>
     </div>
@@ -45,5 +41,3 @@ const ItemDetail = ({ producto }) => {
 };
 
 export default ItemDetail;
-
-

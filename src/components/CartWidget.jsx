@@ -12,12 +12,12 @@ const CartWidget = () => {
   return (
     <Flex>
       <Box>
-        <Link to = {"/Cart"}>
+        <Link to={"/Cart"}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
+            width="40"
+            height="40"
+            fill="white"
             className="bi bi-cart"
             viewBox="0 0 16 16"
           >
@@ -27,7 +27,9 @@ const CartWidget = () => {
       </Box>
       <Divider />
       <Box>
-        <Badge colorScheme="red">{badge}</Badge>
+        <Badge colorScheme="red" variant="solid">
+          {badge}
+        </Badge>
       </Box>
     </Flex>
   );

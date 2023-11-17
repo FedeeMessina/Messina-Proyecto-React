@@ -16,25 +16,23 @@ import "../App.css";
 
 const Item = ({ id, nombre, imagen }) => {
   return (
-    <div >
-      <Card  className= "cardContainer" maxW="sm">
-        <CardBody className= "cardProduct">
-          <Image className= "cardImage"src={imagen} alt="" borderRadius="lg" />
+    <div className="itemContainer">
+      <Card className="cardContainer" maxW="sm">
+        <CardBody className="cardProduct">
+          <Image className="cardImage" src={imagen} alt="" borderRadius="lg" />
           <Stack mt="6" spacing="3">
             <Heading size="md">{nombre}</Heading>
           </Stack>
         </CardBody>
         <Divider />
-        <CardFooter>
-          <ButtonGroup spacing="2">
-            <Button variant="solid" colorScheme="blue">
-              <Center>
-              <Link to={`/product/${id}`}
-              >Ver Detalle
-              </Link>
-              </Center>
-            </Button>
-          </ButtonGroup>
+        <CardFooter alignItems="center" justifyContent="center">
+          <Center>
+            <ButtonGroup spacing="2">
+              <Button variant="solid" colorScheme="blue">
+                <Link to={`/product/${id}`}>Ver Detalle</Link>
+              </Button>
+            </ButtonGroup>
+          </Center>
         </CardFooter>
       </Card>
     </div>
