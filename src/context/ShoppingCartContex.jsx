@@ -10,7 +10,7 @@ export const ShoppingCartProvider = ({ children }) => {
     if (count <= 0) {
       return;
     }
-   
+
     const { id, nombre, precio } = producto;
     const productoExistente = carrito.find((p) => p.id === id);
 
@@ -61,9 +61,7 @@ export const ShoppingCartProvider = ({ children }) => {
     <CartContext.Provider
       value={{
         carrito,
-        setCarrito,
         badge,
-        setBadge,
         agregarProducto,
         borrarProducto,
         cantidadProductosCarrito,
