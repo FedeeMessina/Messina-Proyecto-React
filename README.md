@@ -11,5 +11,7 @@ Dejo mi red social de trabajo aqui para que puedas saber mas de mí:
 
 
 Gif Descriptivo de la navegacion en la pagina:
-
   
+![EntregaFinalGif1](https://github.com/FedeeMessina/Messina-React-PreEntrega2/assets/88862149/eed36682-89f6-45d8-be39-0bbaceb94181)
+
+![EntregaFinalGif2](https://github.com/FedeeMessina/Messina-React-PreEntrega2/assets/88862149/8bf9b6f4-bea6-4da3-93b3-bbc5e1345f93)
